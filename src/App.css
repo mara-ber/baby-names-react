@@ -29,20 +29,23 @@
 }
 
 .Names {
+  margin: 5% 10% 5% 10%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
 }
 
 .NameM {
-  margin-left: 10px;
+  margin: 5px 10px 5px 10px;
+  padding: 0.5% 0.5% 0.5% 0.5%;
   background-color: #61dafb;
   border-radius: 25%;
 }
 
 .NameF {
-  margin-left: 10px;
-  background-color: antiquewhite;
+  margin: 5px 10px 5px 10px;
+  padding: 0.5% 0.5% 0.5% 0.5%;
+  background-color: rgb(182, 236, 54);
   border-radius: 25%;
 }
 
