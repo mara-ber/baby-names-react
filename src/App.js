@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 import Heading from './Heading.js';
-import NamesSorted from './NamesSorted.js';
-import Search from './SearchField.js';
+import SearchField from './SearchField.js';
+import FavoriteNames from './FavoriteNames.js'
+
 
 function App() {
   return (
     <div className="App">
       <Heading />
-      <Search />
+      <SearchField />
       {/* <NamesSorted /> */}
 
     </div>

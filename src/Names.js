@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import babyNamesData from './babyNamesData.json';
 
 const Names = () => {
-    return (<div className="Names"> {
-        babyNamesData.map(function (el, i) {
+    const [names, setNames] = useState({});
+    function loadNames() {
+        setNames(babyNamesData)
+    }
+
+    return (<div onLoad={loadNames} className="Names"> {
+        names.map(function (el, i) {
             if (el.sex === "m") {
                 return <div className="NameM" key={i}> {el.name} </div>;
             }

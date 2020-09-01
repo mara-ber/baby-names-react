@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
-import babyNamesData from './babyNamesData.json';
+//import babyNamesData from './babyNamesData.json';
+import NamesSorted from './NamesSorted.js';
+import FavoriteNames from './FavoriteNames';
+import ButtonFilterNames from './ButtonFilterNames'
 
 
-function Search() {
+function SearchField() {
     const [value, setValue] = useState("");
-    //console.log(value);
+    const [favNames, setFavNames] = useState([]);
 
     function handleChange(event) {
         setValue(event.target.value);
+    }
+
+    const favNamesList = (newName) => {
+        setFavNames([...favNames, newName])
     }
 
     return (
         <div>
             <input
                 onChange={handleChange}
-                value={value}
+                //value={value}
                 type="search"
                 placeholder="Search">
             </input>
-            <div className="Names"> {
-                babyNamesData
-                    .filter(function (el) {
-                        return el.name.toLowerCase().includes(value.toLowerCase());
-                    })
-                    .sort((a, b) => a.name > b.name ? 1 : -1)
-                    .map(function (el, i) {
-                        if (el.sex === "m") {
-                            return <div className="NameM" key={i}> {el.name} </div>;
-                        }
-                        else {
-                            return <div className="NameF" key={i}> {el.name} </div>;
-                        }
-                    })
-            } </div>
+            <div>
+                <ButtonFilterNames gender="male" />
+                <ButtonFilterNames gender="female" />
+            </div>
+            <div className="Names">
+                <FavoriteNames names={favNames} />
+                <NamesSorted value={value} addFav={favNamesList} />
+            </div>
         </div>
 
     );
 
 }
 
-export default Search;
+export default SearchField;
