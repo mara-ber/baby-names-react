@@ -1,14 +1,14 @@
 import React from 'react';
 import babyNamesData from './babyNamesData.json';
-
+import Name from './Name'
 
 
 function NamesSorted(props) {
 
-    const addToFavNames = (event) => {
-        //console.log(el.name);
+    const addToFavNames = (el) => {
+        console.log(el.name);
 
-        props.addFav(event.target.innerText)
+        props.addFav(el)
     }
 
     return (<div className="Names"> {
@@ -17,17 +17,10 @@ function NamesSorted(props) {
                 return el.name.toLowerCase().includes(props.value.toLowerCase());
             })
             .sort((a, b) => a.name > b.name ? 1 : -1)
-            .map(function (el, i) {
-                if (el.sex === "m") {
-                    return <div className="NameM" key={i} onClick={addToFavNames}> {el.name} </div>;
-                }
-                else {
-                    return <div className="NameF" key={i} onClick={addToFavNames}> {el.name} </div>;
-                }
-            })
+            .map((el, i) => <Name el={el} i={i} handleClick={() => addToFavNames(el)} />
+            )
     } </div>
     )
 };
-
 
 export default NamesSorted;

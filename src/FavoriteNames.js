@@ -1,18 +1,12 @@
 import React from 'react';
+import Name from './Name'
 
 
 export default function FavoriteNames(props) {
     return (
         <div>
 
-            Favorite names: {props.names.map(function (el, i) {
-            // if (el.sex === "m") {
-            return <div key={i}> <p> {el} </p>  </div>;
-            // }
-            // else {
-            //     return <div className="NameF" key={i}> {el.name} </div>;
-            // }
-        })}
+            Favorite names: {props.names.map((el, i) => <Name el={el} i={i} />)}
 
         </div>
     )
